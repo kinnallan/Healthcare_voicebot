@@ -19,19 +19,11 @@ Modular Design: Easy to extend by adding more health advice or features.
 
 healthcare_voicebot/
 
-|
-
-|-- templates/
-
-|   |-- index.html        # Main web interface
-
-|
-
-|-- app.py                # Flask application
-
-|-- health_advice.json    # Health recommendations
-
-|-- requirements.txt      # Python dependencies
+templates/
+--  index.html            # Main web interface
+--  app.py                # Flask application
+--  health_advice.json    # Health recommendations
+--  requirements.txt      # Python dependencies
 
 
 3.Usage
