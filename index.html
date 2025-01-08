@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Voicebot | Your AI Health Assistant</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        let isListening = false;
+
+        function toggleListening() {
+            isListening = !isListening;
+            const micButton = document.getElementById('micButton');
+            const statusText = document.getElementById('statusText');
+            const pulsingDot = document.getElementById('pulsingDot');
+            
+            if (isListening) {
+                micButton.classList.add('bg-red-500');
+                micButton.classList.remove('bg-blue-500');
+                statusText.innerText = 'Listening...';
+                pulsingDot.classList.remove('hidden');
+                
+                fetch('/start_listening')
+                    .then(response => response.json())
+                    .then(data => {
+                        updateChat('Assistant', data.response);
+                    })
+                    .catch(err => {
+                        console.log('Error:', err);
+                        showError('Failed to connect to the voice service');
+                    });
+            } else {
+                micButton.classList.remove('bg-red-500');
+                micButton.classList.add('bg-blue-500');
+                statusText.innerText = 'Click microphone to start';
+                pulsingDot.classList.add('hidden');
+                
+                fetch('/stop_listening')
+                    .then(response => response.json())
+                    .then(data => {
+                        updateChat('Assistant', data.response);
+                    })
+                    .catch(err => {
+                        console.log('Error:', err);
+                        showError('Failed to stop the voice service');
+                    });
+            }
+        }
+
+        function updateChat(sender, message) {
+            const chatBox = document.getElementById('chatBox');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `mb-4 ${sender === 'Assistant' ? 'ml-auto' : ''}`;
+            
+            messageDiv.innerHTML = `
+                <div class="${sender === 'Assistant' ? 'bg-blue-100 ml-12' : 'bg-gray-100 mr-12'} rounded-lg p-3 shadow">
+                    <p class="text-sm font-semibold mb-1">${sender}</p>
+                    <p class="text-gray-700">${message}</p>
+                </div>
+            `;
+            
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.innerText = message;
+            errorDiv.classList.remove('hidden');
+            setTimeout(() => {
+                errorDiv.classList.add('hidden');
+            }, 3000);
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Healthcare Voicebot</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto">Your personal AI health assistant. Ask me health-related questions, and I'll help you understand and address your concerns.</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <!-- Chat Box -->
+            <div id="chatBox" class="h-96 overflow-y-auto mb-6 p-4 border border-gray-200 rounded-lg">
+                <div class="mb-4">
+                    <div class="bg-gray-100 rounded-lg p-3 mr-12 shadow">
+                        <p class="text-sm font-semibold mb-1">Assistant</p>
+                        <p class="text-gray-700">Welcome! How can I help you with your health today?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="text-center">
+                <div class="mb-4">
+                    <button id="micButton" 
+                            onclick="toggleListening()" 
+                            class="bg-blue-500 text-white rounded-full p-4 shadow-lg hover:bg-blue-600 transition-colors duration-200">
+                        <i class="fas fa-microphone text-2xl"></i>
+                    </button>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <span id="statusText" class="text-gray-600">Click microphone to start</span>
+                    <div id="pulsingDot" class="hidden h-2 w-2 bg-red-500 rounded-full animate-pulse"></div>
+                </div>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="hidden mt-4 p-3 bg-red-100 text-red-700 rounded-lg text-center"></div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-8 text-center text-gray-600">
+            <p class="text-sm">Make health your #1 priority. Mental and physical health lead to a good life.</p>
+        </div>
+    </div>
+</body>
+</html>
