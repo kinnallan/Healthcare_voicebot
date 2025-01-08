@@ -1,0 +1,128 @@
+{
+  "headache": {
+    "title": "For headaches, here are some recommendations:",
+    "recommendations": [
+      "Stay hydrated - drink at least 8 glasses of water daily",
+      "Rest in a dark, quiet room to reduce sensory stimulation",
+      {
+        "title": "Try over-the-counter medications like:",
+        "items": [
+          "Paracetamol (Acetaminophen)",
+          "Ibuprofen",
+          "Aspirin"
+        ]
+      },
+      "Apply a cold or warm compress to your head or neck",
+      "Practice relaxation techniques like deep breathing",
+      "If headaches persist for more than 3 days, consult a healthcare provider",
+      "Keep track of potential triggers (stress, certain foods, lack of sleep)"
+    ]
+  },
+  "migraine": {
+    "title": "For migraines, consider these steps:",
+    "recommendations": [
+      "Move to a quiet, dark room immediately",
+      "Use cold compresses on your head and neck",
+      {
+        "title": "Try prescribed medications such as:",
+        "items": [
+          "Triptans (like Sumatriptan)",
+          "Anti-nausea medications if needed"
+        ]
+      },
+      "Practice stress-management techniques",
+      "Keep a migraine diary to identify triggers",
+      "Consider preventive medications if migraines are frequent",
+      {
+        "title": "Avoid common triggers:",
+        "items": [
+          "Bright lights",
+          "Loud sounds",
+          "Strong smells",
+          "Certain foods"
+        ]
+      }
+    ]
+  },
+  "fever": {
+    "title": "If you have a fever, follow these guidelines:",
+    "recommendations": [
+      "Monitor your temperature regularly",
+      "Stay hydrated with water and clear fluids",
+      "Get plenty of rest",
+      {
+        "title": "Take fever-reducing medications:",
+        "items": [
+          "Paracetamol (check appropriate dosage)",
+          "Ibuprofen if recommended by healthcare provider"
+        ]
+      },
+      "Use a lukewarm compress",
+      "Wear light clothing and keep room temperature comfortable",
+      {
+        "title": "Seek immediate medical attention if:",
+        "items": [
+          "Temperature exceeds 103°F (39.4°C)",
+          "Fever lasts more than 3 days",
+          "You have other severe symptoms"
+        ]
+      }
+    ]
+  },
+  "cold": {
+    "title": "For managing a common cold:",
+    "recommendations": [
+      "Get plenty of rest to help your body fight the infection",
+      {
+        "title": "Stay hydrated with:",
+        "items": [
+          "Water",
+          "Warm herbal tea with honey",
+          "Clear broths"
+        ]
+      },
+      {
+        "title": "Use over-the-counter medications:",
+        "items": [
+          "Decongestants for nasal congestion",
+          "Antihistamines for runny nose",
+          "Pain relievers for aches"
+        ]
+      },
+      "Try saline nasal drops or sprays",
+      "Use a humidifier in your room",
+      "Gargle with warm salt water",
+      "Consider zinc supplements or vitamin C",
+      "Practice good hygiene to prevent spreading"
+    ]
+  },
+  "anxiety": {
+    "title": "For managing anxiety:",
+    "type": "mental_health",
+    "recommendations": [
+      "Practice deep breathing exercises regularly",
+      "Maintain a consistent sleep schedule",
+      {
+        "title": "Try relaxation techniques:",
+        "items": [
+          "Meditation",
+          "Progressive muscle relaxation",
+          "Mindfulness exercises",
+          "Yoga"
+        ]
+      },
+      {
+        "title": "Professional treatment options:",
+        "items": [
+          "Cognitive Behavioral Therapy (CBT)",
+          "Anti-anxiety medications (consult doctor)",
+          "Counseling or psychotherapy"
+        ]
+      },
+      "Exercise regularly",
+      "Limit caffeine and alcohol intake",
+      "Maintain a support network"
+    ]
+  }
+}
+# Can add as much as you need..,
