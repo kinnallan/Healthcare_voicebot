@@ -2,7 +2,7 @@
 The goal of this project is to create a Flask-based voice-activated healthcare assistant. The assistant will respond to users' spoken inquiries with basic health information and advice.
 
 
-Features
+1.Features
 
 Voice Recognition: Listens to user input and converts speech to text using speech_recognition.
 
@@ -15,7 +15,7 @@ Web Interface: Simple web interface powered by Flask.
 Modular Design: Easy to extend by adding more health advice or features.
 
 
-File Structure
+2.File Structure
 
 healthcare_voicebot/
 
@@ -34,7 +34,7 @@ healthcare_voicebot/
 |-- requirements.txt      # Python dependencies
 
 
-Usage
+3.Usage
 
 Navigate to the web interface.
 
@@ -45,7 +45,7 @@ Speak your health concern (e.g., "I have a headache").
 Receive health advice in text and voice formats.
 
 
-Technologies Used
+4.Technologies Used
 
 Flask: Web framework for Python.
 
